@@ -1,0 +1,85 @@
+# nearby_warp_skip: skip the Forsaken nearby-system warp hold.
+# The 10s Initiating Warp hold is hardcoded in the exe: the star marker UI
+# shows 10.0 minus elapsed as int, and the warp-update gate engages the warp
+# once elapsed reaches 10.0. Two fail-loud patches, always applied: the UI
+# count is forced to zero and the wait branch is NOPed. The Warp Destination
+# tunnel itself is EXML data shipped in this same folder
+# (GLOBALS/GCSPACESHIPGLOBALS EXML, MiniWarp tunnel shortened to instant).
+[mod]
+id = "eu.savagecore.nearby_warp_skip"
+version = "0.0.0"
+label = "Nearby Warp Countdown Skip"
+description = "Skips the Forsaken nearby-system warp countdown."
+enabled = true
+
+[[mod.text]]
+lang = "nl"
+description = "Slaat het aftellen voor de nabije warp van Forsaken over."
+
+[[mod.text]]
+lang = "de"
+description = "Überspringt den Countdown für den nahen Warp aus Forsaken."
+
+[[mod.text]]
+lang = "fr"
+description = "Ignore le compte à rebours du warp proche de Forsaken."
+
+[[mod.text]]
+lang = "it"
+description = "Salta il conto alla rovescia del warp vicino di Forsaken."
+
+[[mod.text]]
+lang = "es"
+description = "Omite la cuenta atrás del salto cercano de Forsaken."
+
+[[mod.text]]
+lang = "es-419"
+description = "Omite la cuenta atrás del salto cercano de Forsaken."
+
+[[mod.text]]
+lang = "ru"
+description = "Пропускает отсчёт варпа к ближней системе Forsaken."
+
+[[mod.text]]
+lang = "pl"
+description = "Pomija odliczanie do bliskiego skoku z Forsaken."
+
+[[mod.text]]
+lang = "pt"
+description = "Ignora a contagem decrescente do salto próximo de Forsaken."
+
+[[mod.text]]
+lang = "pt-BR"
+description = "Pula a contagem regressiva do salto próximo de Forsaken."
+
+[[mod.text]]
+lang = "ja"
+description = "Forsakenの近傍ワープカウントダウンをスキップします。"
+
+[[mod.text]]
+lang = "zh"
+description = "跳过Forsaken近程跃迁倒计时。"
+
+[[mod.text]]
+lang = "zh-Hant"
+description = "跳過Forsaken近程躍遷倒計時。"
+
+[[mod.text]]
+lang = "ko"
+description = "Forsaken 근거리 워프 카운트다운을 건너뜁니다."
+
+[[patch]]
+id = "instant-countdown-ui"
+op = "write-bytes"
+pattern = "F3 0F 5F C1 E8 ?? ?? ?? ?? F3 0F 2C C8 85 C9 89 4D 10"
+offset = 9
+expect = "F3 0F 2C C8"
+bytes = "31 C9 66 90"
+
+[[patch]]
+id = "instant-warp-gate"
+op = "write-bytes"
+pattern = "F3 0F 10 83 0C 0D 00 00 0F 2F C2 0F 82 ?? ?? ?? ??"
+offset = 11
+expect = "0F 82 91 01 00 00"
+bytes = "66 0F 1F 44 00 00"

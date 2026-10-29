@@ -1,0 +1,19 @@
+[center][size=5][b]Nearby Warp Countdown Skip[/b][/size]
+Skips the 10s Initiating Warp on the new Forsaken nearby-system warp.[/center]
+
+[b]What it does[/b]
+Pointing at a nearby system used to wait 10s on Initiating Warp before the warp starts. This skips it.
+
+[b]Requires:[/b] the [b][url=https://www.nexusmods.com/nomanssky/mods/4700]Nozavolochen Framework[/url][/b] (provides the shared host DLL - spec-driven, no closed-source loaders).
+
+[b]Install[/b]
+Install like any other mod into [b]GAMEDATA/MODS[/b] so you end up with [b]GAMEDATA/MODS/Nearby Warp Countdown Skip/mod.toml[/b]. The Nozavolochen framework provides the host DLL. After launch [i]Binaries/nozavolochen.log[/i] shows what was applied or any errors.
+
+[b]Compatibility[/b]
+[list]
+[*]Built for Forsaken[/*]
+[*]Runtime memory patches applied by the host DLL at boot. No game files are modified, so there is nothing to merge and nothing to conflict with[/*]
+[*]Patterns are checked before patching - a game update that shifts them is reported in the log instead of misbehaving[/*]
+[/list]
+
+Source: [url=https://github.com/SavageCore/nms-nearby-warp-skip]https://github.com/SavageCore/nms-nearby-warp-skip[/url]
