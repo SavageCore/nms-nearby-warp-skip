@@ -7,7 +7,7 @@
 # (GLOBALS/GCSPACESHIPGLOBALS EXML, MiniWarp tunnel shortened to instant).
 [mod]
 id = "eu.savagecore.nearby_warp_skip"
-version = "0.0.0"
+version = "0.1.0"
 label = "Nearby Warp Countdown Skip"
 description = "Skips the Forsaken nearby-system warp countdown."
 enabled = true
